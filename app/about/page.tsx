@@ -1,15 +1,34 @@
+
+import PageFrame from "../components/PageFrame";
+
 export default function About() {
   return (
-    <main className="min-h-screen bg-slate-950 px-8 py-20 text-white">
-      <h1 className="text-4xl font-bold">About my project</h1>
+    <PageFrame
+      title="About Me"
+      subtitle="A little about my background and interests."
+    >
+      <section>
+        <h2 className="mb-3 text-2xl font-semibold">
+          Hello, I'm YOUR NAME.
+        </h2>
+        <p>
+          I am an IT student interested in software
+          development, networking, and cybersecurity.
+          I enjoy learning new technologies and
+          building practical applications.
+        </p>
+      </section>
 
-      <p className="mt-6 text-slate-300">
-        This is my first website built with Next.js.
-      </p>
-
-      <a href="/" className="mt-8 inline-block text-blue-400 underline">
-        Back to home
-      </a>
-    </main>
+      <section>
+        <h2 className="mb-3 text-2xl font-semibold">
+          My Interests
+        </h2>
+        <p>
+          My interests include web development,
+          mobile applications, operating systems,
+          and network security.
+        </p>
+      </section>
+    </PageFrame>
   );
 }
