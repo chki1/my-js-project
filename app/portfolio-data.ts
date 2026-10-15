@@ -6,7 +6,7 @@ export const profile = {
   name: 'ALTAN-OCHIR.D',
   initials: 'YN',
   role: 'IT Student at MUST',
-  location: 'Ulaanbaatar, Mongolia',
+  location:   'Ulaanbaatar, Mongolia',
   email: 'achkiochir@gmail.com.com',
   github: 'https://github.com/chki1',
   repository: 'https://github.com/chki1/my-js-project',
@@ -19,6 +19,8 @@ export const profile = {
   university: 'MONGOLIAN UNIVErSITY OF SCIENCE AND TECHNOLOGY',
   degree: 'SEEKING DEGREE',
   years: '2022 – 2027',
+  address: 'Khan-Uul, Ulaanbaatar, Mongolia'
+  
 };
 
 export const projects = [

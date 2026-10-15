@@ -1,41 +1,67 @@
-import Link from "next/link";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import PortfolioIcon, { type PortfolioIconName } from '../components/PortfolioIcon';
+import PortfolioShell from '../components/PortfolioShell';
+import { profile } from '../portfolio-data';
+import { siteDetails } from '../site-details';
+import site from '../portfolio.module.css';
+import ui from './contact.module.css';
 
-export default function Contact() {
+export const metadata: Metadata = {
+  title: `Contact | ${profile.name}`,
+  description: `Telephone, email, and address for ${profile.name}.`,
+};
+
+type ContactDetail = { label: string; value: string; hint: string; icon: PortfolioIconName; href?: string; external?: boolean };
+
+function ContactCard({ detail, index }: { detail: ContactDetail; index: number }) {
+  const content = (
+    <>
+      <div className={ui.cardTop}><span className={ui.icon}><PortfolioIcon name={detail.icon} /></span><span className={ui.index}>0{index + 1}</span></div>
+      <h2>{detail.label}</h2>
+      <p className={detail.icon === 'mail' ? `${ui.value} ${ui.emailValue}` : ui.value}>{detail.value}</p>
+      <span className={ui.hint}>{detail.hint}{detail.href && <PortfolioIcon name="arrow" />}</span>
+    </>
+  );
+  return detail.href ? (
+    <a className={ui.card} href={detail.href} target={detail.external ? '_blank' : undefined} rel={detail.external ? 'noopener noreferrer' : undefined}>{content}</a>
+  ) : (
+    <article className={ui.card}>{content}</article>
+  );
+}
+
+export default function ContactPage() {
+  const telephone = siteDetails.telephone.trim();
+  const email = siteDetails.email.trim();
+  const address = siteDetails.address.trim();
+  const contacts: ContactDetail[] = [
+    { label: 'Telephone', value: telephone || 'Not listed', hint: telephone ? 'Call me directly' : 'You can reach me by email', icon: 'phone', href: telephone ? `tel:${telephone.replace(/[^+0-9]/g, '')}` : undefined },
+    { label: 'Email', value: email || 'Not listed', hint: email ? 'Send me a message' : 'Contact details coming soon', icon: 'mail', href: email ? `mailto:${email}` : undefined },
+    { label: 'Address', value: address || 'Not listed', hint: address ? 'View location on Google Maps' : 'Location coming soon', icon: 'pin', href: address ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}` : undefined, external: true },
+  ];
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-950 px-6">
-      <section className="w-full max-w-xl rounded-2xl border border-slate-800 bg-slate-900 p-8">
-        <h1 className="text-4xl font-bold text-white">
-          Contact me
-        </h1>
-
-        <p className="mt-4 text-slate-300">
-          This is the third page of my Next.js website.
-          You can contact me using the email below.
-        </p>
-
-        <a
-          href="mailto:your-email@example.com"
-          className="mt-6 block break-all text-lg text-blue-400 hover:underline"
-        >
-          your-email@example.com
-        </a>
-
-        <nav className="mt-8 flex gap-4">
-          <Link
-            href="/"
-            className="rounded-lg bg-blue-600 px-5 py-3 font-semibold text-white hover:bg-blue-500"
-          >
-            Home
-          </Link>
-
-          <Link
-            href="/about"
-            className="rounded-lg border border-slate-600 px-5 py-3 font-semibold text-white hover:bg-slate-800"
-          >
-            About
-          </Link>
-        </nav>
-      </section>
-    </main>
+    <PortfolioShell activePage="contact">
+      <main className={ui.main}>
+        <div className={site.container}>
+          <div className={ui.heading}>
+            <p className={ui.eyebrow}><span /> GET IN TOUCH</p>
+            <h1>Good things start with<br /><em>a conversation.</em></h1>
+            <p className={ui.lead}>A project idea, a question, or just a hello — I would love to hear from you. Here is where you can find me.</p>
+          </div>
+          <section className={ui.grid} aria-label="Contact details">
+            {contacts.map((detail, index) => <ContactCard detail={detail} index={index} key={detail.label} />)}
+          </section>
+          <section className={ui.githubPanel} aria-labelledby="github-title">
+            <span className={ui.githubIcon}><PortfolioIcon name="github" /></span>
+            <div><p>ELSEWHERE ON THE INTERNET</p><h2 id="github-title">See what I am building.</h2><span>Coursework, experiments, and projects in progress.</span></div>
+            <a href={profile.github} target="_blank" rel="noopener noreferrer">Find me on GitHub <PortfolioIcon name="arrow" /></a>
+          </section>
+          <div className={ui.bottom}>
+            <p><PortfolioIcon name="pin" /> Based in {profile.location}</p>
+            <Link href="/about">A little more about me <span aria-hidden="true">↗</span></Link>
+          </div>
+        </div>
+      </main>
+    </PortfolioShell>
   );
 }

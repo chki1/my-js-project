@@ -1,0 +1,343 @@
+.main {
+    padding: 77px 0 72px;
+    min-height: calc(100vh - 154px);
+}
+
+.heading {
+    position: relative;
+    padding-bottom: 47px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 25px;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+}
+
+.eyebrow>span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #729271;
+}
+
+.heading h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(45px, 6.2vw, 79px);
+    line-height: 1.12;
+    letter-spacing: -.05em;
+    font-weight: 400;
+    margin: 0 0 25px;
+}
+
+.heading h1 em {
+    color: var(--accent);
+    font-weight: 400;
+}
+
+.lead {
+    max-width: 580px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 280px;
+    padding: 28px;
+    border-radius: 10px;
+    border: 1px solid #dce1d5;
+    background: #fff;
+    color: var(--ink);
+}
+
+a.card {
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+
+a.card:hover {
+    border-color: #9db39c;
+    box-shadow: 0 12px 28px #2439250b;
+    transform: translateY(-3px);
+}
+
+.cardTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 36px;
+}
+
+.icon {
+    display: grid;
+    place-items: center;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #e0e7db;
+    border-radius: 50%;
+    color: var(--accent);
+    background: #f1f4ed;
+}
+
+.icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.index {
+    color: #687766;
+    font-family: Georgia, serif;
+    font-size: 14px;
+}
+
+.card h2 {
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    color: #61715f;
+    font-size: 10px;
+    font-weight: 700;
+    margin: 0 0 10px;
+}
+
+.value {
+    color: #263d2e;
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(22px, 2.1vw, 27px);
+    line-height: 1.35;
+    letter-spacing: -.025em;
+    margin: 0 0 24px;
+    overflow-wrap: anywhere;
+}
+
+.card .emailValue {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(16px, 1.5vw, 20px);
+    line-height: 1.8;
+    letter-spacing: -.02em;
+}
+
+.hint {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-top: 17px;
+    border-top: 1px solid #e7ebe1;
+    margin-top: auto;
+    color: #64735f;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.hint svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.githubPanel {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 28px;
+    background: #eaf0e4;
+    border: 1px solid #dbe3d2;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.githubIcon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    background: #dce6d3;
+    border-radius: 13px;
+    color: #426047;
+}
+
+.githubIcon svg {
+    width: 25px;
+    height: 25px;
+}
+
+.githubPanel>div {
+    min-width: 0;
+}
+
+.githubPanel p {
+    color: #617958;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    margin: 0 0 7px;
+}
+
+.githubPanel h2 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 27px;
+    letter-spacing: -.035em;
+    line-height: 1.3;
+    margin: 0 0 5px;
+    color: #2e4836;
+}
+
+.githubPanel div>span {
+    font-size: 12px;
+    color: #62745b;
+}
+
+.githubPanel a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: 46px;
+    margin-left: auto;
+    padding: 12px 18px;
+    white-space: nowrap;
+    background: #355c4a;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background .2s;
+}
+
+.githubPanel a:hover {
+    background: #244536;
+}
+
+.githubPanel a svg {
+    width: 17px;
+    height: 17px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding-top: 34px;
+    color: #687269;
+}
+
+.bottom p {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    margin: 0;
+}
+
+.bottom p svg {
+    width: 14px;
+    height: 14px;
+}
+
+.bottom a {
+    font-size: 12px;
+    color: #426047;
+    border-bottom: 1px solid #acb7a4;
+    padding-bottom: 4px;
+}
+
+.bottom a span {
+    margin-left: 8px;
+}
+
+@media (max-width: 850px) {
+    .card {
+        padding: 22px;
+    }
+    .githubPanel {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .githubPanel a {
+        margin-left: 78px;
+    }
+}
+
+@media (max-width: 680px) {
+    .main {
+        padding: 46px 0;
+    }
+    .heading {
+        padding-bottom: 32px;
+        margin-bottom: 26px;
+    }
+    .heading h1 {
+        font-size: clamp(40px, 10.3vw, 59px);
+    }
+    .lead {
+        font-size: 14px;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .card {
+        min-height: 240px;
+        padding: 25px;
+    }
+    .cardTop {
+        margin-bottom: 26px;
+    }
+    .value {
+        font-size: 27px;
+    }
+    .githubPanel {
+        padding: 25px;
+        gap: 18px;
+        margin-top: 22px;
+    }
+    .githubPanel>div {
+        flex: 1;
+        min-width: min(100%, 190px);
+    }
+    .githubPanel h2 {
+        font-size: 25px;
+    }
+    .githubPanel a {
+        margin-left: 0;
+        width: 100%;
+    }
+    .bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        padding-top: 28px;
+        gap: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    a.card {
+        transition: none;
+    }
+    a.card:hover {
+        transform: none;
+    }
+}
