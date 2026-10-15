@@ -7,7 +7,7 @@ export const profile = {
   initials: 'YN',
   role: 'IT Student at MUST',
   location:   'Ulaanbaatar, Mongolia',
-  email: 'achkiochir@gmail.com.com',
+  email: 'achkiochir@gmail.com',
   github: 'https://github.com/chki1',
   repository: 'https://github.com/chki1/my-js-project',
   headline: 'Building useful things with code.',
